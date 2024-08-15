@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <title>Formulario de registro</title>
+</head>
+<body>
+    <form action="procesos.php" method="post">
+        <div class="form-container">
+            <div class="column">
+                <h1>Registro de Usuario</h1>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="30"
+                    pattern="^(?!.*([A-Za-záéíóúÁÉÍÓÚñÑ])\1{2,})[A-Za-záéíóúÁÉÍÓÚñÑ\s\-']+$"
+                    data-error-id="nombre-error">
+                <span class="error-message" id="nombre-error">Nombre inválido</span>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required minlength="3" maxlength="30"
+                    pattern="^(?!.*([A-Za-záéíóúÁÉÍÓÚñÑ])\1{2,})[A-Za-záéíóúÁÉÍÓÚñÑ\s\-']+$"
+                    data-error-id="apellido-error">
+                <span class="error-message" id="apellido-error">Apellido inválido</span>
+
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" required minlength="10" maxlength="10">
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" minlength="10" maxlength="10" pattern="09\d{8}"
+                    data-error-id="telefono-error">
+                <span class="error-message" id="telefono-error">Número inválido</span>
+            </div>
+            <div class="column">
+                <label for="fecha_nac">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nac" name="fecha_nac" required min="1920-01-01" max="2030-12-31">
+
+                <label for="salario">Salario:</label>
+                <input type="number" id="salario" name="salario" required min="450" max="5000" value="450"
+                    data-error-id="salario-error">
+                <span class="error-message" id="salario-error">Salario fuera del rango</span>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required
+                    pattern="^[a-zA-Z0-9._%+-]+@(gmail|yahoo|hotmail|espe)\.(com|edu|ec)$" data-error-id="email-error">
+                <span class="error-message" id="email-error">Email inválido</span>
+
+                <label for="sitio_web">Sitio Web:</label>
+                <input type="url" id="sitio_web" name="sitio_web">
+                <span class="error-message" id="sitio-web-error">Dirección incorrecta</span>
+
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" required minlength="8" maxlength="12"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$.,!%*?&])[A-Za-z\d@$.,!%*?&]+$"
+                    data-error-id="contraseña-error">
+                <span class="error-message" id="contraseña-error">Contraseña inválida</span>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input type="submit" value="Registrar">
+            <input type="reset" value="Cancelar">
+        </div>
+    </form>
+
+    <script src="validar.js"></script>
+</body>
+
+</html>
